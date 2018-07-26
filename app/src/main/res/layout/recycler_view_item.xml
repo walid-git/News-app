@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img"
+                style="@style/img_style"
+                android:src="@drawable/ic_outline_image_24px" />
+
+            <TextView
+                android:id="@+id/titleTv"
+                style="@style/title_text"
+                android:text="How Xbox technology could keep older people safe at home" />
+
+            <TextView
+                android:id="@+id/trailTv"
+                style="@style/medium_text"
+                android:text="Researchers are testing motion-sensitive technology to see how it might detect and prevent falls – and reduce hospital admissions " />
+
+            <TextView
+                android:id="@+id/authorTv"
+                style="@style/small_text"
+                android:layout_below="@+id/trailTv"
+                android:text="Angela Monaghan" />
+
+            <TextView
+                android:id="@+id/dateTv"
+                style="@style/small_text"
+                android:layout_below="@+id/authorTv"
+                android:paddingBottom="8dp"
+                android:text="2018-06-25T09:25:02Z" />
+
+            <TextView
+                android:id="@+id/sectionTv"
+                style="@style/section_text"
+                android:text="Technology" />
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>
