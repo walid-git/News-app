@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListPreference
+        android:defaultValue="@string/order_by_default"
+        android:entries="@array/order_by_labels"
+        android:entryValues="@array/order_by_values"
+        android:key="@string/order_by_key"
+        android:summary="%s"
+        android:title="Order results by" />
+
+    <MultiSelectListPreference
+        android:defaultValue="@array/categories_default_values"
+        android:entries="@array/categories_labels"
+        android:entryValues="@array/categories_values"
+        android:key="@string/categories_key"
+        android:summary="Which news categories to load"
+        android:title="News categories" />
+    <ListPreference
+        android:defaultValue="@string/num_articles_default"
+        android:entries="@array/number_of_articles"
+        android:entryValues="@array/number_of_articles"
+        android:key="@string/num_articles_key"
+        android:summary="%s"
+        android:title="Number of articles to load" />
+</PreferenceScreen>

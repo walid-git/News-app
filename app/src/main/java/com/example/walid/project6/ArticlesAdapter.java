@@ -95,7 +95,7 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.Articl
             if (!article.getThumbnail().contentEquals(""))
                 Picasso.get().load(article.getThumbnail()).placeholder(R.drawable.ic_outline_image_24px).into(img);
             else
-                Picasso.get().load(R.drawable.ic_outline_image_24px).into(img);
+                img.setImageResource(R.drawable.ic_outline_image_24px);
         }
     }
 }

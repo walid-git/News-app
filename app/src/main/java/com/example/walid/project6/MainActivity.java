@@ -6,6 +6,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.LoaderManager;
@@ -15,9 +16,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,11 +34,12 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     SwipeRefreshLayout refreshLayout;
     List<Article> articles;
     private static final String TAG = "walidTag";
-    public static final String DATA_URL = "https://content.guardianapis.com/search?page-size=30&q=technology&show-fields=headline,trailText,thumbnail,byline&from-date=2018-06-01&order-by=newest&api-key="+BuildConfig.API_KEY;
+    public static final String BASE_URL = "https://content.guardianapis.com/search";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        PreferenceManager.setDefaultValues(this, R.xml.settings_main, false);
         setContentView(R.layout.activity_main);
         emptyTv = findViewById(R.id.emptyTV);
         refreshLayout = findViewById(R.id.refresh);
@@ -79,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     @Override
     public android.support.v4.content.Loader<List<Article>> onCreateLoader(int id, @Nullable Bundle args) {
         Log.d(TAG, "onCreateLoader: ");
-        return new ArticlesLoader(this);
+        return new ArticlesLoader(this, BASE_URL);
     }
 
     @Override
@@ -96,7 +101,21 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     }
 
     @Override
-    public void onLoaderReset(@NonNull android.support.v4.content.Loader<List<Article>> loader) {
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.settings_menu_item) {
+            startActivity(new Intent(this, SettingsActivity.class));
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onLoaderReset(@NonNull android.support.v4.content.Loader<List<Article>> loader) {
+        articles.clear();
     }
 }

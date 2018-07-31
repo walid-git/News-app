@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="order_by_labels">
+        <item>Newest</item>
+        <item>Relevance</item>
+    </string-array>
+    <string-array name="order_by_values">
+        <item>newest</item>
+        <item>relevance</item>
+    </string-array>
+
+    <string-array name="categories_labels">
+        <item>Sport</item>
+        <item>World</item>
+        <item>Technology</item>
+        <item>Africa</item>
+        <item>Cinema</item>
+        <item>Programming</item>
+    </string-array>
+
+    <string-array name="categories_default_values">
+        <item>technology/technology</item>
+    </string-array>
+
+    <string-array name="categories_values">
+        <item>theguardian/sport</item>
+        <item>world/world</item>
+        <item>technology/technology</item>
+        <item>world/africa</item>
+        <item>film/world-cinema</item>
+        <item>technology/programming</item>
+    </string-array>
+
+    <string-array name="number_of_articles">
+        <item>25</item>
+        <item>50</item>
+        <item>100</item>
+        <item>150</item>
+        <item>200</item>
+    </string-array>
+</resources>
